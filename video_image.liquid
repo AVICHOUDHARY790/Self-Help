@@ -1,5 +1,5 @@
 {%- if block.settings.show_image_or_video == 'video' and block.settings.video_src != blank -%}
-{% assign vid_class = 'video media_element_video_video_media_block_' | append: block.id | append:  'media_element_video_video_media_block_' | append: block.id | append: '_block_class_custom' %}
+  {% assign vid_class = 'video media_element_video_video_media_block_' | append: block.id | append:  'media_element_video_video_media_block_' | append: block.id | append: '_block_class_custom' %}
   {%- render 'main_video',
    video: block.settings.media_element_video_src,
    click: block.settings.media_element_video_default_click,
@@ -10,7 +10,7 @@
     vid_class: vid_class,
   -%}
 {% elsif block.settings.show_image_or_video == 'image' and block.settings.step_image_src_mobile != blank or block.settings.step_image_src_desktop != blank -%}
-{% assign img_class = 'video media_element_image_image_media_block_' | append: block.id | append:  'media_element_image_image_media_block_' | append: block.id | append: '_block_class_custom' %}
+  {% assign img_class = 'video media_element_image_image_media_block_' | append: block.id | append:  'media_element_image_image_media_block_' | append: block.id | append: '_block_class_custom' %}
   {%- render 'main_image',
    web_img: block.settings.hero_image_src_desktop,
    mob_img: block.settings.hero_image_src_mobile,
