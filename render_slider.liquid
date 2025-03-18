@@ -1,1 +1,86 @@
+{{ 'wwai_swiper-bundle.min.css' | asset_url | stylesheet_tag }}
 
+<div>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"></div>
+    </div>
+  </div>
+  <div class="slider-controls">
+   <div class="prev">
+    <svg width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M10.3543 23.1632L0.491764 13.3006C-0.113452 12.6954 -0.113452 11.7141 0.491764 11.1089L10.3543 1.24631C10.9596 0.641094 11.9408 0.641094 12.546 1.24631C13.1512 1.85153 13.1512 2.83278 12.546 3.438L3.77929 12.2047L12.546 20.9715C13.1512 21.5767 13.1512 22.5579 12.546 23.1632C11.9408 23.7684 10.9596 23.7684 10.3543 23.1632Z" fill="#57665C"></path>
+    </svg>
+  </div>
+  <div class="dots"> </div>
+  <div class="next">
+    <svg width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M2.64554 1.24627L12.5081 11.1088C13.1133 11.7141 13.1133 12.6953 12.5081 13.3005L2.64554 23.1631C2.04032 23.7683 1.05907 23.7683 0.453851 23.1631C-0.151365 22.5579 -0.151365 21.5766 0.453851 20.9714L9.22059 12.2047L0.453851 3.43796C-0.151365 2.83274 -0.151365 1.85149 0.453851 1.24627C1.05907 0.641054 2.04032 0.641054 2.64554 1.24627Z" fill="#57665C"></path>
+    </svg>
+  </div>
+  </div>
+</div>
+<script src="{{ 'wwai_swiper-bundle.min.js' | asset_url }}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var Swipes = new Swiper('.section-{{ section.id }} .swiper', {
+      loop: false,
+      slidesPerView: 1,
+      spaceBetween: 15,
+      grabCursor: false,
+      initialSlide: 0,
+      roundLengths: true,
+      // speed: 1500,
+      navigation: {
+        nextEl: '.section-{{ section.id }} .next',
+        prevEl: '.section-{{ section.id }} .prev',
+        clickable: true,
+      },
+      pagination: {
+          el: ".dots",
+          clickable: true
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          centeredSlides: false,
+          loop: false,
+          initialSlide: 0,
+          spaceBetween: 22
+        },
+        1199: {
+          slidesPerView: 3,
+          centeredSlides: false,
+          loop: false,
+          initialSlide: 0,
+          spaceBetween: 22
+        }
+      },
+      on: {
+        init: function () {
+          updateNavigationVisibility(this);
+        },
+        resize: function () {
+          updateNavigationVisibility(this);
+        },
+        slideChange: function () {
+          updateNavigationVisibility(this);
+        }
+      }
+    });
+    function updateNavigationVisibility(swiper) {
+      const totalSlides = swiper.slides.length;
+      const slidesPerView = swiper.params.slidesPerView;
+  
+      const canShowAllSlides = totalSlides <= slidesPerView;
+  
+      const sliderControls = document.querySelector('.section-{{ section.id }} .slider-controls');
+  
+      if (canShowAllSlides) {
+        sliderControls.style.display = 'none';
+      } else {
+        sliderControls.style.display = '';
+      }
+    }
+  });
+</script>
