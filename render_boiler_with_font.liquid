@@ -1,5 +1,14 @@
 {% assign font_variable = section.settings.font_variable | split: '|' | first %}
 {% render 'main_local-font', font_name: font_variable %}
+ 
+# how to set margin to text in flexbox
+
+<style>
+  .text_class_section {
+    margin-top: calc(({{ section.settings.marquee_text_font_size_mobile }}px - {{ section.settings.marquee_text_font_size_mobile }}px*(1.2)) / {{ section.settings.marquee_text_line_height }});
+    margin-bottom: calc(({{ section.settings.marquee_text_font_size_mobile }}px - {{ section.settings.marquee_text_font_size_mobile }}px*(1.2)) / {{ section.settings.marquee_text_line_height }});
+  }
+</style>
 
 <div class="section-{{ section.id }}">
   <div class="outer_container_outer_container_class_section outer_container_outer_container_class_section_custom">
