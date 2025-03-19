@@ -1,0 +1,6 @@
+# will do it in leter version
+
+{%- render
+ text: {{ section.settings.heading_text_text_content }},
+ class: 'heading_text_text_class_section heading_text_text_class_section_custom'
+ -%}
