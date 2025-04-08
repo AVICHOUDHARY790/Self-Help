@@ -1,0 +1,15 @@
+# These file go to section top
+{{ 'video-player.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'video_player.js' | asset_url }}" defer></script>
+# These file go to section top
+
+
+{%- render 'main_video',
+  video: block.settings.media_element_video_src,
+  click: block.settings.media_element_video_default_click,
+  autoplay: block.settings.media_element_video_autoplay,
+  loop: block.settings.media_element_video_default_loop,
+  mute: block.settings.media_element_video_default_mute,
+  controls: block.settings.media_element_video_show_controls,
+  vid_class: 'media_element_video_video_media_block',
+-%}
