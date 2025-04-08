@@ -1,0 +1,5 @@
+{%- render 'main_container_text'
+ text: {{ section.settings.heading_text_text_content }},
+ class: 'heading_text_text_class_section'
+ container_class: 'container_text_text_class_section'
+ -%}
