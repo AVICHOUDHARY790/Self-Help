@@ -1,0 +1,10 @@
+{%- if mob_img != blank or web_img != blank -%}
+  <picture class="main_picture-tag">
+    {%- if mob_img != blank -%}
+      <source media="(max-width:767px)" srcset="{{- mob_img | image_url -}}">
+    {%- endif -%}
+    {%- if web_img != blank -%}
+      <img src="{{- web_img | image_url -}}" alt="{{ web_img.alt }}" width="{{ web_img.width }}" height="{{ web_img.height }}" class="{{ class_img }}">
+    {%- endif -%}
+  </picture>
+{%- endif -%}
