@@ -1,7 +1,0 @@
-# need's to set 'display: inline-block/block;' to .cta_button_button_class_section_custom 
-
-{%- if section.settings.cta_button_text_link != blank and section.settings.cta_button_text_content != blank -%}
-  <a href="{{- section.settings.cta_button_text_link -}}" data-wwai-btn data-wwai-btn-{{ section.id }} class="cta_button_button_class_section cta_button_button_class_section_custom">
-    {{- section.settings.cta_button_text_content -}}
-  </a>
-{%- endif -%}
