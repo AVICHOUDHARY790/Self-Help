@@ -1,0 +1,5 @@
+{%- if text != blank -%}
+<div class="{{ container_class }}">
+  <div class="{{ class }}">{{- text -}}</div>
+</div>
+{%- endif -%}
