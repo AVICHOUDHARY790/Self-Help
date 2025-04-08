@@ -1,0 +1,5 @@
+{%- if link != blank and text != blank -%}
+  <a href="{{- link -}}" data-wwai-btn data-wwai-btn-{{ id }} class="{{ class }}">
+    {{- text -}}
+  </a>
+{%- endif -%}
