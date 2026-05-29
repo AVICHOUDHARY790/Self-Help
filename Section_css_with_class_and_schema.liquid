@@ -1,0 +1,95 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --outer-container-padding-vertical: {{ section.settings.padding_vertical }}px;
+    --outer-container-padding-horizontal: {{ section.settings.padding_horizontal }}px;
+    --outer-container-padding-vertical_mobile: {{ section.settings.padding_vertical_mobile }}px;
+    --outer-container-padding-horizontal_mobile: {{ section.settings.padding_horizontal_mobile }}px;
+  }
+  </style>
+
+  
+<div class="section-{{ section.id }} color-{{ section.settings.color_scheme }} bg-container {{ section.settings.layout }}">
+</div>
+
+{% schema %}
+{
+  "name": "Announcement Banner",
+  "max_blocks": 10,
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "label": "Full Width",
+          "value": "full-width",
+        },
+        {
+          "label": "Fix Width",
+          "value": "page-width",
+        },
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical_desktop",
+      "label": "Desktop padding vertical",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal_desktop",
+      "label": "Desktop padding horizontal",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical_mobile",
+      "label": "Mobile padding vertical",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal_mobile",
+      "label": "Mobile padding horizontal",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_social_icons",
+      "label": "Enable social icons",
+      "default": true
+    }
+{% endschema %}
